@@ -1,4 +1,5 @@
-import { ethers } from 'https://cdn.skypack.dev/ethers';
+// Import the official ESM build of ethers (v5.x or v6.x)
+import { ethers } from 'https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.esm.min.js';
 
 const SONIC10_ABI = [
   'function feeForPower(uint8 power) public view returns (uint256)',
@@ -15,14 +16,15 @@ let provider, signer, account;
 
 walletBtn.addEventListener('click', async () => {
   if (!window.ethereum) {
-    alert('Please install MetaMask or another wallet.');
+    alert('Please install a wallet extension (e.g. MetaMask).');
     return;
   }
   if (!account) {
-    provider = new ethers.BrowserProvider(window.ethereum);
+    // v5 style provider
+    provider = new ethers.providers.Web3Provider(window.ethereum);
     const [acct] = await window.ethereum.request({ method: 'eth_requestAccounts' });
     account = acct;
-    signer  = await provider.getSigner();
+    signer  = provider.getSigner();
     walletBtn.textContent = 'Disconnect';
   } else {
     account = signer = provider = null;
@@ -45,7 +47,7 @@ mintBtn.addEventListener('click', async () => {
     const fee = await contract.feeForPower(power);
     statusEl.textContent = 'Sending transaction…';
     const tx = await contract.mint(power, { value: fee });
-    statusEl.textContent = `Transaction sent: ${tx.hash}`;
+    statusEl.textContent = `Tx sent: ${tx.hash}`;
     await tx.wait();
     statusEl.textContent = `Mint confirmed! Power ${power}.`;
   } catch (err) {
