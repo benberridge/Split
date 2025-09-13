@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- CSP via meta tag -->
+  <!-- CSP as strict as possible now that we’re using an ESM build w/o eval -->
   <meta http-equiv="Content-Security-Policy"
         content="
           default-src 'self';
-          script-src 'self' https://cdn.skypack.dev 'unsafe-eval';
+          script-src 'self';
           connect-src 'self' https://rpc.sonic.network;
           style-src 'self' https://fonts.googleapis.com;
           font-src 'self' https://fonts.gstatic.com;
@@ -18,12 +18,10 @@
   <title>Sonic10 Mint Page</title>
 
   <!-- Google Font -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet" />
 
-  <!-- Your app CSS (moved from inline <style>) -->
+  <!-- your CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -32,8 +30,7 @@
   <div class="banner-wrapper">
     <img
       src="https://d5z5gg6ru5enr7l6wb6sdgcjdmju3qtap3eo4du77bry4udg2jiq.ardrive.net/H3PTG9GnSNj9frB9IZhJGxNNwmB-yO4On_hjjlBm0lE"
-      alt="Sonic10 Banner"
-    />
+      alt="Sonic10 Banner" />
   </div>
 
   <div class="lower-section">
@@ -43,8 +40,7 @@
         <label for="power-select">Select Power</label>
         <select id="power-select">
           <option value="1" selected>1</option>
-          <option value="2">2</option>
-          <!-- … -->
+          <!-- … up to 10 … -->
           <option value="10">10</option>
         </select>
         <button id="mint-button">Mint</button>
@@ -61,10 +57,7 @@
     <a href="#" id="telegram-link"><img src="PATH_TO_TELEGRAM_ICON" alt="Telegram"></a>
   </div>
 
-  <!-- Ethers.js from CDN -->
-  <script src="https://cdn.skypack.dev/ethers"></script>
-
-  <!-- Your app logic (moved from inline <script>) -->
+  <!-- your JS as a module -->
   <script type="module" src="main.js"></script>
 </body>
 </html>
