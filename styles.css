@@ -1,10 +1,5 @@
 /* Reset & base */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Roboto', sans-serif;
   overflow-y: auto;
@@ -12,7 +7,6 @@ body {
   background-size: 400% 400%;
   animation: sonic-bg 20s ease infinite alternate;
 }
-
 @keyframes sonic-bg {
   from { background-position: 0% 0%; }
   to   { background-position: 100% 100%; }
@@ -20,20 +14,16 @@ body {
 
 /* Wallet button */
 #wallet-button {
-  position: absolute;
-  top: 1rem; right: 1rem;
-  padding: 0.5rem 1rem;
+  position: absolute; top: 1rem; right: 1rem;
+  padding: .5rem 1rem;
   border: none; border-radius: 6px;
-  background-color: #1e90ff; color: #fff;
-  font-size: 0.9rem; cursor: pointer;
-  transition: background 0.2s ease;
-  z-index: 10;
+  background: #1e90ff; color: #fff;
+  cursor: pointer; transition: background .2s;
+  z-index:10;
 }
-#wallet-button:hover {
-  background-color: #007acc;
-}
+#wallet-button:hover { background: #007acc }
 
-/* Banner with silver edge */
+/* Banner */
 .banner-wrapper {
   margin: 2rem auto 1rem;
   max-width: 225px; width: 60%;
@@ -41,97 +31,92 @@ body {
   background-image:
     linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)),
     linear-gradient(45deg,#bbb,#ddd,#ccc,#eee);
-  background-clip: padding-box, border-box;
-  border: 2mm solid transparent;
-  background-size: 100% 100%,400% 400%;
-  animation: silver-edge 20s ease infinite alternate;
-  box-shadow:
-    0 4px 12px rgba(0,0,0,0.25),
-    inset 2px 2px 4px rgba(255,255,255,0.6),
-    inset -2px -2px 4px rgba(0,0,0,0.2);
-}
-.banner-wrapper img {
-  display: block;
-  width: 100%;
-  border-radius: 10px;
-}
-@keyframes silver-edge {
-  from { background-position: 0% 0%, 0% 0%; }
-  to   { background-position:100% 100%,100% 100%; }
-}
-
-/* Animated border */
-@keyframes orange-blue-edge {
-  from { background-position: 0% 0%, 0% 0%; }
-  to   { background-position:100% 100%,100% 100%; }
-}
-
-/* Desktop: three boxes side by side */
-.lower-section {
-  position: absolute; top: 50%; left: 5%;
-  width: 90%; transform: translateY(-50%);
-  display: flex; gap: 1rem; justify-content: space-between;
-}
-.box {
-  flex: 0 0 352px; padding: 1rem; border-radius: 12px;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)),
-    linear-gradient(45deg,#FFB74D,#81D4FA,#FFE0B2,#B3E5FC);
   background-clip: padding-box,border-box;
   border: 2mm solid transparent;
   background-size:100% 100%,400% 400%;
+  animation: silver-edge 20s ease infinite alternate;
+  box-shadow:
+    0 4px 12px rgba(0,0,0,.25),
+    inset 2px 2px 4px rgba(255,255,255,.6),
+    inset -2px -2px 4px rgba(0,0,0,.2);
+}
+.banner-wrapper img { display:block; width:100%; border-radius:10px }
+@keyframes silver-edge {
+  from { background-position: 0% 0%, 0% 0% }
+  to   { background-position:100% 100%,100% 100% }
+}
+
+/* Boxes */
+.lower-section {
+  position: absolute; top:50%; left:5%;
+  width:90%; transform: translateY(-50%);
+  display:flex; gap:1rem; justify-content: space-between;
+}
+.box {
+  flex: 0 0 352px; padding:1rem; border-radius:12px;
+  background-image:
+    linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.9)),
+    linear-gradient(45deg,#FFB74D,#81D4FA,#FFE0B2,#B3E5FC);
+  background-clip: padding-box,border-box;
+  border:2mm solid transparent;
+  background-size:100% 100%,400% 400%;
   animation: orange-blue-edge 20s ease infinite alternate;
   box-shadow:
-    0 4px 12px rgba(0,0,0,0.1),
-    inset 2px 2px 4px rgba(255,255,255,0.6),
-    inset -2px -2px 4px rgba(0,0,0,0.2);
+    0 4px 12px rgba(0,0,0,.1),
+    inset 2px 2px 4px rgba(255,255,255,.6),
+    inset -2px -2px 4px rgba(0,0,0,.2);
 }
 .box.coming-soon {
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.25rem; color: #555;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.25rem; color:#555;
+}
+@keyframes orange-blue-edge {
+  from { background-position:0% 0%, 0% 0% }
+  to   { background-position:100% 100%,100% 100% }
 }
 
 /* Mint controls */
-.mint-controls { width: 100%; }
+.mint-controls { width:100% }
 .mint-controls h1 {
-  font-size: 1.5rem; font-weight: 500;
-  text-align: center; margin-bottom: 1.5rem; color: #333;
+  font-size:1.5rem; font-weight:500;
+  text-align:center; margin-bottom:1.5rem; color:#333;
 }
 .mint-controls label {
-  font-weight: 500; color: #555;
-  display: block; margin-bottom: 0.5rem;
+  font-weight:500; color:#555;
+  display:block; margin-bottom:.5rem;
 }
 .mint-controls select {
-  width: 100%; padding: 0.5rem; margin-bottom: 1.5rem;
-  border: 1px solid #ccc; border-radius: 6px; background: #fafafa;
+  width:100%; padding:.5rem; margin-bottom:1.5rem;
+  border:1px solid #ccc; border-radius:6px; background:#fafafa;
 }
 .mint-controls button {
-  width: 100%; padding: 0.75rem; border: none; border-radius: 6px;
-  background-color: #1e90ff; color: #fff; font-weight: 500;
-  cursor: pointer; transition: background 0.3s ease;
+  width:100%; padding:.75rem; border:none; border-radius:6px;
+  background:#1e90ff; color:#fff; font-weight:500;
+  cursor:pointer; transition: background .3s;
 }
-.mint-controls button:hover { background-color: #007acc; }
+.mint-controls button:hover { background:#007acc }
 #status {
-  margin-top: 1rem; font-size: 0.9rem; color: #333;
-  text-align: center; min-height: 1.2em;
+  margin-top:1rem; font-size:.9rem; color:#333;
+  text-align:center; min-height:1.2em;
 }
 
-/* Social footer */
+/* Socials */
 .socials {
-  position: absolute; bottom: 1rem; left: 50%;
-  transform: translateX(-50%); display: flex; gap: 1rem;
+  position:absolute; bottom:1rem; left:50%;
+  transform:translateX(-50%);
+  display:flex; gap:1rem;
 }
-.socials a { display: block; width: 24px; height: 24px; }
-.socials img { width: 100%; height: 100%; object-fit: contain; }
+.socials a { display:block; width:24px; height:24px }
+.socials img { width:100%; height:100%; object-fit:contain }
 
-/* Mobile tweaks */
-@media (max-width: 768px) {
+/* Mobile */
+@media (max-width:768px) {
   .lower-section {
-    position: static; transform: none;
-    margin: 1rem 0; padding: 0 10%;
-    display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+    position:static; transform:none;
+    margin:1rem 0; padding:0 10%;
+    display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
   }
   .box {
-    flex: 0 0 80%; max-width: 80%; scroll-snap-align: start;
+    flex:0 0 80%; max-width:80%; scroll-snap-align:start;
   }
 }
