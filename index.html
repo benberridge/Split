@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- CSP via meta tag -->
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          script-src 'self' https://cdn.skypack.dev 'unsafe-eval';
+          connect-src 'self' https://rpc.sonic.network;
+          style-src 'self' https://fonts.googleapis.com;
+          font-src 'self' https://fonts.gstatic.com;
+          img-src 'self' data: https://*.ardrive.net;
+        " />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sonic10 Mint Page</title>
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Your app CSS (moved from inline <style>) -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <button id="wallet-button">Connect Wallet</button>
+
+  <div class="banner-wrapper">
+    <img
+      src="https://d5z5gg6ru5enr7l6wb6sdgcjdmju3qtap3eo4du77bry4udg2jiq.ardrive.net/H3PTG9GnSNj9frB9IZhJGxNNwmB-yO4On_hjjlBm0lE"
+      alt="Sonic10 Banner"
+    />
+  </div>
+
+  <div class="lower-section">
+    <div class="box">
+      <div class="mint-controls">
+        <h1>Sonic10 NFT Mint</h1>
+        <label for="power-select">Select Power</label>
+        <select id="power-select">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <!-- … -->
+          <option value="10">10</option>
+        </select>
+        <button id="mint-button">Mint</button>
+        <div id="status"></div>
+      </div>
+    </div>
+    <div class="box coming-soon">Coming soon</div>
+    <div class="box coming-soon">Coming soon</div>
+  </div>
+
+  <div class="socials">
+    <a href="#" id="docs-link"><img src="PATH_TO_BOOK_ICON" alt="Docs"></a>
+    <a href="#" id="x-link"><img src="PATH_TO_X_ICON" alt="X"></a>
+    <a href="#" id="telegram-link"><img src="PATH_TO_TELEGRAM_ICON" alt="Telegram"></a>
+  </div>
+
+  <!-- Ethers.js from CDN -->
+  <script src="https://cdn.skypack.dev/ethers"></script>
+
+  <!-- Your app logic (moved from inline <script>) -->
+  <script type="module" src="main.js"></script>
+</body>
+</html>
